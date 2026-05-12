@@ -1,0 +1,138 @@
+@import "tailwindcss";
+
+@theme {
+  --color-verde-petrolio: #1a4a5a;
+  --color-oro-antico: #c9a84c;
+  --color-avorio-caldo: #f5edd8;
+  --color-notte-profonda: #0d2430;
+  --color-oro-chiaro: #e8c97a;
+  --color-grigio-platino: #c0beb8;
+
+  --font-headline: var(--font-cormorant), "Georgia", serif;
+  --font-body: var(--font-josefin), "Arial", sans-serif;
+}
+
+:root {
+  /* Alias semantici come da guidelines */
+  --color-background-dark: var(--color-verde-petrolio);
+  --color-background-light: var(--color-avorio-caldo);
+  --color-text-on-dark: var(--color-avorio-caldo);
+  --color-text-on-light: var(--color-verde-petrolio);
+  --color-accent: var(--color-oro-antico);
+  --color-accent-hover: var(--color-oro-chiaro);
+  --color-footer: var(--color-notte-profonda);
+
+  /* Ombre calde Non Solo Oro */
+  --shadow-gold: 0 4px 24px rgba(201, 168, 76, 0.18);
+  --shadow-gold-lg: 0 8px 48px rgba(201, 168, 76, 0.28);
+  --shadow-dark: 0 4px 24px rgba(13, 36, 48, 0.35);
+}
+
+body {
+  background-color: var(--color-background-light);
+  color: var(--color-text-on-light);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Utilities base da guidelines */
+.bg-verde-petrolio { background-color: var(--color-verde-petrolio); }
+.bg-avorio-caldo { background-color: var(--color-avorio-caldo); }
+.bg-notte-profonda { background-color: var(--color-notte-profonda); }
+
+.text-avorio-caldo { color: var(--color-avorio-caldo); }
+.text-verde-petrolio { color: var(--color-verde-petrolio); }
+.text-oro-antico { color: var(--color-oro-antico); }
+
+/* Componenti base */
+.btn-primary {
+  background-color: var(--color-oro-antico);
+  color: var(--color-notte-profonda);
+  font-family: var(--font-body);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 14px 36px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.1s ease;
+}
+.btn-primary:hover {
+  background-color: var(--color-oro-chiaro);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-oro-antico);
+  border: 1.5px solid var(--color-oro-antico);
+  font-family: var(--font-body);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 12px 34px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.btn-secondary:hover {
+  background-color: var(--color-oro-antico);
+  color: var(--color-notte-profonda);
+}
+
+.divider-nso {
+  border: none;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--color-oro-antico) 25%,
+    var(--color-oro-antico) 75%,
+    transparent
+  );
+  margin: 48px auto;
+  max-width: 160px;
+}
+
+.divider-nso-double {
+  width: 120px;
+  margin: 32px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.divider-nso-double::before,
+.divider-nso-double::after {
+  content: '';
+  display: block;
+  height: 1px;
+  background: var(--color-oro-antico);
+  opacity: 0.7;
+}
+.divider-nso-double::before { opacity: 1; }
+
+.card-product {
+  background-color: var(--color-verde-petrolio);
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+.card-product:hover {
+  box-shadow: var(--shadow-gold-lg);
+  transform: translateY(-3px);
+}
+.card-product__label {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-oro-antico);
+}
+.card-product__title {
+  font-family: var(--font-headline);
+  font-size: 1.25rem;
+  color: var(--color-avorio-caldo);
+}
